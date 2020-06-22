@@ -517,6 +517,7 @@ div.invitado img{
   filter: gray;
   filter: grayscale(1);
   transition: all 500ms;
+  width: 100%;
 }
 
 div.invitado:hover img {
