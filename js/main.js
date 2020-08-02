@@ -5,15 +5,6 @@
 
     document.addEventListener("DOMContentLoaded", function () {
 
-        var map = L.map('mapa').setView([13.461333, -88.165627], 16);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        L.marker([13.461333, -88.165627]).addTo(map)
-            .bindPopup('VIsitanos.')
-            .openPopup();
 
         //campos datos usuarios
         var nombre = document.getElementById("nombre");
@@ -150,4 +141,38 @@
 
     });
 
-}()); 
+}());
+
+$(document).ready(function () {
+
+    agregarMapa();
+
+    $(".programa-evento .info-curso:first").show();
+    $(".menu-programa a:first").addClass("activo");
+
+    $(".menu-programa a").on("click", function () {
+        $(".menu-programa a").removeClass("activo");
+        $(this).addClass("activo");
+
+        let enlacePresionado = $(this);
+        let enlace = enlacePresionado.attr("href");
+
+        $(".programa-evento .info-curso").fadeOut();
+        $(enlace).fadeIn();
+
+        return false;
+    });
+
+});
+
+function agregarMapa() {
+    var map = L.map('mapa').setView([13.461333, -88.165627], 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([13.461333, -88.165627]).addTo(map)
+        .bindPopup('VIsitanos.')
+        .openPopup();
+}
