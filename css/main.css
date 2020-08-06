@@ -186,6 +186,7 @@ textarea {
   .contenedor {
     width: 98%;
     margin: 0px auto;
+    max-width: 1300px;;
   }
 
   ul {
@@ -207,6 +208,7 @@ textarea {
       margin: 0px auto;
     }
   }
+
 
   /*Header*/
 
@@ -286,6 +288,13 @@ textarea {
   }
 
 /*Barra*/
+
+.fixed {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
 div.barra {
   background: #353535;
@@ -897,6 +906,18 @@ p.copyright {
 
 
 /* Internas */
+
+/* Conferencias */
+
+body.conferencia .navegacion-principal .activo {
+  border-bottom: 2px solid #fe4918;
+}
+
+div.galeria {
+  display: inline-block;
+  padding: 10px;
+}
+
 /* Registros */
 
 form.registro h3 {
