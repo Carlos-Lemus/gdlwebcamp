@@ -41,6 +41,8 @@
             pase_completo.addEventListener("blur", mostrarDias);
 
             btnCalcular.addEventListener("click", calcularMontos);
+            
+            btnRegistro.disabled = true;
 
             function calcularMontos(event) {
                 event.preventDefault();
@@ -83,6 +85,10 @@
                     }
 
                     suma.innerHTML = "$ " + totalPagar.toFixed(2);
+
+                    btnRegistro.disabled = false;
+
+                    document.getElementById("total_pedido").value = totalPagar.toFixed(2);
 
                 }
 
