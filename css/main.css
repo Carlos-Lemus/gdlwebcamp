@@ -365,6 +365,9 @@ nav.navegacion-principal a:hover {
     display: flex;
     align-items: center;
     text-align: right;
+    flex-basis: 40%;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 
   nav.navegacion-principal a {
@@ -909,7 +912,7 @@ p.copyright {
 
 /* Conferencias */
 
-body.conferencia .navegacion-principal .activo {
+.navegacion-principal .activo {
   border-bottom: 2px solid #fe4918;
 }
 
@@ -1049,6 +1052,71 @@ div.resumen input {
   padding: 20px;
   text-align: center;
 }
+
+/* Calendaria */
+
+div.calendario h3 {
+  background: #fe4918;
+  color: white;
+  text-align: center;
+  padding: 10px 0px;
+  clear: both;
+}
+
+div.calendario::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+div.dia {
+  width: 50%;
+  float: left;
+  border: 2px solid #e1e1e1;
+  transition: all 300ms;
+  min-width: 240px;
+}
+
+@media only screen and (min-width: 768px) {
+  div.dia {
+    width: 33.3%;
+  }
+}
+
+div.dia:hover{
+  background: #e1e1e1;
+  transform: scale(1.2,1.2);
+}
+
+div.dia p.titulo {
+  color: #fe4918;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div.dia p {
+  font-size: 1em;
+}
+
+div.dia i {
+  color: #fe4918;
+  font-size: 1.6em;
+}
+
+/* invitados */
+
+/* Colorbox */
+
+div.cboxElement {
+  padding: 30px!important;
+  text-align: center;
+  background-color: white;
+}
+
+.container-invitado-info {
+  display: none;
+}
+
 
 /* ==========================================================================
    Helper classes

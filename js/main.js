@@ -146,6 +146,13 @@
 
 $(document).ready(function () {
 
+    // Agregar clase menu
+
+    $("body.conferencias .navegacion-principal a:contains('Conferencia')").addClass("activo");
+    $("body.invitados .navegacion-principal a:contains('Invitados')").addClass("activo");
+    $("body.calendario .navegacion-principal a:contains('Calendario')").addClass("activo");
+
+
     // Menu fijo
 
     var windowHeight = $(window).height();
@@ -168,8 +175,6 @@ $(document).ready(function () {
     $(".menu-movil").on("click", function () {
         $(".navegacion-principal").slideToggle();
     });
-
-    agregarMapa();
 
 
     //programa de conferencia
@@ -208,17 +213,29 @@ $(document).ready(function () {
 
     });
 
+    //colorbox
+
+    if ($(".invitado-info").length > 0) { 
+        $(".invitado-info").colorbox({inline: true, width: "50%"});
+    }
+
+    agregarMapa();
+
 });
 
 function agregarMapa() {
 
-    var map = L.map('mapa').setView([13.461333, -88.165627], 16);
+    if ($("#mapa").length > 0) {
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+        var map = L.map('mapa').setView([13.461333, -88.165627], 16);
 
-    L.marker([13.461333, -88.165627]).addTo(map)
-        .bindPopup('VIsitanos.')
-        .openPopup();
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([13.461333, -88.165627]).addTo(map)
+            .bindPopup('VIsitanos.')
+            .openPopup();
+
+    }
 }
