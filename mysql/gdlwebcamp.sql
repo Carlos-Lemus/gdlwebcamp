@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 08, 2020 at 07:49 PM
+-- Generation Time: Aug 27, 2020 at 07:58 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -38,8 +38,8 @@ CREATE TABLE `categoria_eventos` (
 --
 
 INSERT INTO `categoria_eventos` (`id_categoria`, `categoria_evento`, `icono`) VALUES
-(1, 'Seminario', 'fa-university'),
-(2, 'Conferencia', 'fa-commet'),
+(1, 'Seminarios', 'fa-university'),
+(2, 'Conferencias', 'fa-commet'),
 (3, 'Talleres', 'fa-code');
 
 -- --------------------------------------------------------
@@ -165,6 +165,60 @@ INSERT INTO `invitados` (`id_invitado`, `nombre_invitado`, `apellido_invitado`, 
 (5, 'Harold', 'Garcia', 'Praesent et nulla magna. Maecenas laoreet mi in risus pellentesque, ut imperdiet sem posuere. Aenean purus sem, finibus ut purus in, scelerisque dignissim massa. Sed vulputate nisl eget sodales scelerisque. Donec non massa eget odio sagittis pharetra id nec urna. Aliquam vel velit quam odio sagittis pharetra id nec urna.', 'invitado5.jpg'),
 (6, 'Susan', 'Sanchez', 'Praesent et nulla magna. Maecenas laoreet mi in risus pellentesque, ut imperdiet sem posuere. Aenean purus sem, finibus ut purus in, scelerisque dignissim massa. Sed vulputate nisl eget sodales scelerisque. Donec non massa eget odio sagittis pharetra id nec urna. Aliquam vel velit quam odio sagittis pharetra id nec urna.\r\n\r\n', 'invitado6.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `regalos`
+--
+
+CREATE TABLE `regalos` (
+  `ID_regalo` int(11) NOT NULL,
+  `nombre_regalo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `regalos`
+--
+
+INSERT INTO `regalos` (`ID_regalo`, `nombre_regalo`) VALUES
+(1, 'Pulseras'),
+(2, 'Etiquetas'),
+(3, 'Plumas');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `registros`
+--
+
+CREATE TABLE `registros` (
+  `ID_Registrado` bigint(20) UNSIGNED NOT NULL,
+  `nombre_registrado` varchar(50) NOT NULL,
+  `apellido_registrado` varchar(50) NOT NULL,
+  `email_registrado` text NOT NULL,
+  `fecha_registro` datetime NOT NULL,
+  `pases_articulos` longtext NOT NULL,
+  `talleres_registrados` longtext NOT NULL,
+  `regalos` int(11) NOT NULL,
+  `total_pagado` varchar(50) NOT NULL,
+  `pagado` int(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `registros`
+--
+
+INSERT INTO `registros` (`ID_Registrado`, `nombre_registrado`, `apellido_registrado`, `email_registrado`, `fecha_registro`, `pases_articulos`, `talleres_registrados`, `regalos`, `total_pagado`, `pagado`) VALUES
+(1, 'Pedro', 'Torre', 'pedrotorre@gmail.com', '2020-08-11 19:39:53', '{\"un_dia\":2,\"pase_completo\":3,\"camisas\":4,\"etiquetas\":5}', '{\"eventos\":[\"conf_01\",\"conf_02\",\"conf_03\",\"taller_06\",\"taller_07\",\"taller_10\",\"taller_11\",\"taller_12\",\"taller_13\",\"taller_16\"]}', 2, '210.00', 0),
+(2, 'Pablo', 'Alvarado', 'pabloalvarado@gmail.com', '2020-08-11 19:51:54', '{\"un_dia\":1,\"pase_completo\":2,\"etiquetas\":1}', '{\"eventos\":[\"conf_01\",\"conf_02\",\"taller_08\",\"taller_10\",\"taller_15\",\"taller_16\"]}', 2, '112.00', 0),
+(3, 'pedro', 'torre', 'ejemplo@gmai.com', '2020-08-27 17:12:58', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1,\"camisas\":6,\"etiquetas\":9}', '{\"eventos\":[\"taller_01\",\"taller_02\",\"conf_02\",\"conf_03\",\"sem_01\"]}', 2, '73.00', 0),
+(4, 'pedro', 'torre', 'ejemplo@gmail.com', '2020-08-27 17:14:14', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1,\"camisas\":2,\"etiquetas\":3}', '{\"eventos\":[\"conf_02\",\"conf_03\",\"taller_16\",\"conf_07\",\"conf_08\"]}', 2, '1571.00', 0),
+(5, 'Carlos', 'Torre', 'ejemplo@gmail.com', '2020-08-27 17:15:57', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1}', '{\"eventos\":[\"conf_02\",\"conf_03\",\"taller_10\",\"taller_11\"]}', 1, '120.00', 0),
+(6, 'Carlos', 'Torre', 'ejemplo@gmail.com', '2020-08-27 17:22:05', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1}', '{\"eventos\":[\"conf_02\",\"conf_03\",\"taller_10\",\"taller_11\"]}', 1, '120.00', 0),
+(8, 'Pedro', 'Torres', 'ejemplo@gmail.com', '2020-08-27 17:25:01', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1,\"camisas\":4,\"etiquetas\":6}', '{\"eventos\":[\"sem_01\",\"conf_04\",\"conf_05\",\"conf_06\"]}', 2, '102.00', 1),
+(9, 'Pedro', 'torre       ', 'ejemplo@gmail.com', '2020-08-27 18:14:33', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1,\"camisas\":10,\"etiquetas\":2}', '[]', 1, '79.00', 1),
+(10, 'Jason', 'Glober', 'ejemplo@gmail.com', '2020-08-27 18:41:17', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1,\"camisas\":10,\"etiquetas\":10}', '{\"eventos\":[\"conf_02\",\"conf_03\",\"sem_01\",\"conf_04\",\"conf_05\",\"conf_06\"]}', 1, '155.00', 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -190,6 +244,19 @@ ALTER TABLE `invitados`
   ADD PRIMARY KEY (`id_invitado`);
 
 --
+-- Indexes for table `regalos`
+--
+ALTER TABLE `regalos`
+  ADD PRIMARY KEY (`ID_regalo`);
+
+--
+-- Indexes for table `registros`
+--
+ALTER TABLE `registros`
+  ADD PRIMARY KEY (`ID_Registrado`),
+  ADD KEY `regalos` (`regalos`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -212,6 +279,18 @@ ALTER TABLE `invitados`
   MODIFY `id_invitado` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `regalos`
+--
+ALTER TABLE `regalos`
+  MODIFY `ID_regalo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `registros`
+--
+ALTER TABLE `registros`
+  MODIFY `ID_Registrado` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -221,6 +300,12 @@ ALTER TABLE `invitados`
 ALTER TABLE `eventos`
   ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria_eventos` (`id_categoria`),
   ADD CONSTRAINT `eventos_ibfk_2` FOREIGN KEY (`id_invitado`) REFERENCES `invitados` (`id_invitado`);
+
+--
+-- Constraints for table `registros`
+--
+ALTER TABLE `registros`
+  ADD CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`regalos`) REFERENCES `regalos` (`ID_regalo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
