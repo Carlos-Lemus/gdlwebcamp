@@ -1059,12 +1059,18 @@ div.resumen input {
 
 /* Calendaria */
 
+div.calendario {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 div.calendario h3 {
+  display: block;
+  width: 100%;
   background: #fe4918;
   color: white;
   text-align: center;
   padding: 10px 0px;
-  clear: both;
 }
 
 div.calendario::after {
@@ -1074,22 +1080,27 @@ div.calendario::after {
 }
 
 div.dia {
-  width: 50%;
-  float: left;
+  flex: 1 0 100%;
   border: 2px solid #e1e1e1;
   transition: all 300ms;
   min-width: 240px;
 }
 
-@media only screen and (min-width: 768px) {
-  div.dia {
-    width: 33.3%;
-  }
-}
-
 div.dia:hover{
   background: #e1e1e1;
   transform: scale(1.2,1.2);
+}
+
+@media only screen and (min-width: 480px) {
+  div.dia {
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  div.dia {
+    flex-basis: 33.33%;
+  }
 }
 
 div.dia p.titulo {
@@ -1105,6 +1116,28 @@ div.dia p {
 div.dia i {
   color: #fe4918;
   font-size: 1.6em;
+}
+
+.pagado {
+  text-align: center;
+}
+
+.resultado {
+  text-align: center;
+  padding: 1rem 0;
+  max-width: 400px;
+  margin: 0 auto;
+  color: white;
+}
+
+.correcto {
+  background-color: rgb(2, 173, 2);
+  
+}
+
+.error {
+  background-color: darkred;
+
 }
 
 /* invitados */

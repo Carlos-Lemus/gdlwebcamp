@@ -61,7 +61,9 @@
 
           <?php 
             do{
+              // store_result transfiere un conjunto de resultados de la ultima consulta
               $resultado = $conn->store_result();
+              // fetch_all adquiere todas las filas en un array asociativo o indexado
               $row = $resultado->fetch_all(MYSQLI_ASSOC);
           ?>
               <?php $i = 0; ?>
@@ -87,8 +89,12 @@
 
               <?php $i++; ?>
               <?php endforeach; ?>
-              <?php $resultado->free(); ?>
+              <?php $resultado->free(); // libera la memoria asociada a un resultado ?>
           <?php
+
+            // more_results comprueba si hay mas resultados de una multiconsulta
+            // next_result prepara el siguiente resultado en multiquery
+
             } while($conn->more_results() && $conn->next_result());
           ?>
 
@@ -134,7 +140,7 @@
               <li>Todas las conferencias</li>
               <li>Todos los talleres</li>
             </ul>
-            <a href="#" class="button hollow">Comprar</a>
+            <a href="registro.php" class="button hollow">Comprar</a>
           </div>
         </li>
 
@@ -147,7 +153,7 @@
               <li><i class="fas fa-check"></i> Todas las conferencias</li>
               <li><i class="fas fa-check"></i> Todos los talleres</li>
             </ul>
-            <a href="#" class="button">Comprar</a>
+            <a href="registro.php" class="button">Comprar</a>
           </div>
         </li>
 
@@ -160,7 +166,7 @@
               <li><i class="fas fa-check"></i> Todas las conferencias</li>
               <li>Todos los talleres</li>
             </ul>
-            <a href="#" class="button hollow">Comprar</a>
+            <a href="registro.php" class="button hollow">Comprar</a>
           </div>
         </li>
 
@@ -237,7 +243,7 @@
     <div class="contenido contenedor">
       <p>Registrate al newsletter</p>
       <h3>GdlWebCamp</h3>
-      <a href="#" class="button transparent">Registro</a>
+      <a href="registro.php" class="button transparent">Registro</a>
     </div>
   </div>
 
