@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 27, 2020 at 07:58 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Servidor: localhost
+-- Tiempo de generación: 10-09-2020 a las 22:42:33
+-- Versión del servidor: 10.4.13-MariaDB
+-- Versión de PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gdlwebcamp`
+-- Base de datos: `gdlwebcamp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria_eventos`
+-- Estructura de tabla para la tabla `admins`
+--
+
+CREATE TABLE `admins` (
+  `id_admin` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `nombre` varchar(70) NOT NULL,
+  `password` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `admins`
+--
+
+INSERT INTO `admins` (`id_admin`, `usuario`, `nombre`, `password`) VALUES
+(1, 'Admin', 'pedro', '$2y$10$aSBE4atx.dZddMoDVYR7S.v5oNn8jjduCyZN6/qXbdI16F2mgmp0i'),
+(2, 'Admin2', 'Pedro', '$2y$10$LAMk1RqJcpfz1.4VsE2WPu5WCqnxfcLQfD2ar7.BWj6zufl/jbJcq'),
+(3, 'Admin2', 'Pedro', '$2y$10$BobGluKQP2QnsuscoCrX7.Zb6EE8J0fOwMsSCPQrqcVnyVSNsK/ve'),
+(4, 'Admin2', 'Luis', '$2y$10$yPZwSfI0xqyvYmLNpKJabOaCMdatlaO0DhV..2BACeG6xYDoxOKFe'),
+(5, 'Admin5', 'Miguel', '$2y$10$VjiCBX3phIGvMrtqfVj1eeW7ENyV1aFCU3wpp3f2.UxZi9.UiP2hu'),
+(6, 'Admin10', 'Juan', '$2y$10$B992A7txCSK3wsYqMzIq6.fotmPDpRq52mKAIF917O.IntAUnLfYu'),
+(7, 'Admin12', 'Luis', '$2y$10$j/0UVdY6RDsT4sVZQsMrnuuE/9e9UqgBIq437r.VHi7zek0xyLcKG'),
+(8, 'Admin14', 'Luis', '$2y$10$KLKt6/zjDxv3iwB1TIilnewYjE3Xryh2oIhh0FIXvu13P6NwGamWW');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria_eventos`
 --
 
 CREATE TABLE `categoria_eventos` (
@@ -34,7 +61,7 @@ CREATE TABLE `categoria_eventos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `categoria_eventos`
+-- Volcado de datos para la tabla `categoria_eventos`
 --
 
 INSERT INTO `categoria_eventos` (`id_categoria`, `categoria_evento`, `icono`) VALUES
@@ -45,7 +72,7 @@ INSERT INTO `categoria_eventos` (`id_categoria`, `categoria_evento`, `icono`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventos`
+-- Estructura de tabla para la tabla `eventos`
 --
 
 CREATE TABLE `eventos` (
@@ -59,7 +86,7 @@ CREATE TABLE `eventos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `eventos`
+-- Volcado de datos para la tabla `eventos`
 --
 
 INSERT INTO `eventos` (`evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `id_categoria`, `id_invitado`, `clave`) VALUES
@@ -142,7 +169,7 @@ INSERT INTO `eventos` (`evento_id`, `nombre_evento`, `fecha_evento`, `hora_event
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invitados`
+-- Estructura de tabla para la tabla `invitados`
 --
 
 CREATE TABLE `invitados` (
@@ -154,7 +181,7 @@ CREATE TABLE `invitados` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `invitados`
+-- Volcado de datos para la tabla `invitados`
 --
 
 INSERT INTO `invitados` (`id_invitado`, `nombre_invitado`, `apellido_invitado`, `descripcion`, `url_imagen`) VALUES
@@ -168,7 +195,7 @@ INSERT INTO `invitados` (`id_invitado`, `nombre_invitado`, `apellido_invitado`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `regalos`
+-- Estructura de tabla para la tabla `regalos`
 --
 
 CREATE TABLE `regalos` (
@@ -177,7 +204,7 @@ CREATE TABLE `regalos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `regalos`
+-- Volcado de datos para la tabla `regalos`
 --
 
 INSERT INTO `regalos` (`ID_regalo`, `nombre_regalo`) VALUES
@@ -188,7 +215,7 @@ INSERT INTO `regalos` (`ID_regalo`, `nombre_regalo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `registros`
+-- Estructura de tabla para la tabla `registros`
 --
 
 CREATE TABLE `registros` (
@@ -205,7 +232,7 @@ CREATE TABLE `registros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `registros`
+-- Volcado de datos para la tabla `registros`
 --
 
 INSERT INTO `registros` (`ID_Registrado`, `nombre_registrado`, `apellido_registrado`, `email_registrado`, `fecha_registro`, `pases_articulos`, `talleres_registrados`, `regalos`, `total_pagado`, `pagado`) VALUES
@@ -220,17 +247,23 @@ INSERT INTO `registros` (`ID_Registrado`, `nombre_registrado`, `apellido_registr
 (10, 'Jason', 'Glober', 'ejemplo@gmail.com', '2020-08-27 18:41:17', '{\"un_dia\":1,\"pase_completo\":1,\"pase_2dias\":1,\"camisas\":10,\"etiquetas\":10}', '{\"eventos\":[\"conf_02\",\"conf_03\",\"sem_01\",\"conf_04\",\"conf_05\",\"conf_06\"]}', 1, '155.00', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categoria_eventos`
+-- Indices de la tabla `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indices de la tabla `categoria_eventos`
 --
 ALTER TABLE `categoria_eventos`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indexes for table `eventos`
+-- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`evento_id`),
@@ -238,71 +271,77 @@ ALTER TABLE `eventos`
   ADD KEY `id_invitado` (`id_invitado`);
 
 --
--- Indexes for table `invitados`
+-- Indices de la tabla `invitados`
 --
 ALTER TABLE `invitados`
   ADD PRIMARY KEY (`id_invitado`);
 
 --
--- Indexes for table `regalos`
+-- Indices de la tabla `regalos`
 --
 ALTER TABLE `regalos`
   ADD PRIMARY KEY (`ID_regalo`);
 
 --
--- Indexes for table `registros`
+-- Indices de la tabla `registros`
 --
 ALTER TABLE `registros`
   ADD PRIMARY KEY (`ID_Registrado`),
   ADD KEY `regalos` (`regalos`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categoria_eventos`
+-- AUTO_INCREMENT de la tabla `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `categoria_eventos`
 --
 ALTER TABLE `categoria_eventos`
   MODIFY `id_categoria` tinyint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `eventos`
+-- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   MODIFY `evento_id` tinyint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
--- AUTO_INCREMENT for table `invitados`
+-- AUTO_INCREMENT de la tabla `invitados`
 --
 ALTER TABLE `invitados`
   MODIFY `id_invitado` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `regalos`
+-- AUTO_INCREMENT de la tabla `regalos`
 --
 ALTER TABLE `regalos`
   MODIFY `ID_regalo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `registros`
+-- AUTO_INCREMENT de la tabla `registros`
 --
 ALTER TABLE `registros`
   MODIFY `ID_Registrado` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `eventos`
+-- Filtros para la tabla `eventos`
 --
 ALTER TABLE `eventos`
   ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria_eventos` (`id_categoria`),
   ADD CONSTRAINT `eventos_ibfk_2` FOREIGN KEY (`id_invitado`) REFERENCES `invitados` (`id_invitado`);
 
 --
--- Constraints for table `registros`
+-- Filtros para la tabla `registros`
 --
 ALTER TABLE `registros`
   ADD CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`regalos`) REFERENCES `regalos` (`ID_regalo`);
