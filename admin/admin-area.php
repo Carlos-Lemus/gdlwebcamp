@@ -1,3 +1,5 @@
+<?php include "funciones/sesiones.php"; ?>
+<?php include "funciones/funciones.php"; ?>
 <?php include "templates/header.php"; ?>
 <?php include "templates/barra.php" ?>
 <?php include "templates/navegacion.php"; ?>

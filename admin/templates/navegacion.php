@@ -159,7 +159,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                <a href="crear-admin.php" class="nav-link">
                   <i class="fa fa-plus-circle nav-icon"></i>
                   <p>Agregar</p>
                 </a>

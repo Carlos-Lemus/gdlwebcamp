@@ -1080,7 +1080,7 @@ div.calendario::after {
 }
 
 div.dia {
-  flex: 1 0 100%;
+  flex: 0 0 100%;
   border: 2px solid #e1e1e1;
   transition: all 300ms;
   min-width: 240px;

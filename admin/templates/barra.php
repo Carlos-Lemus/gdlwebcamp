@@ -24,6 +24,20 @@
       </div>
     </form>
 
+    <ul class="navbar-nav">
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Ajustes</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="login.php?cerrar_sesion=true" class="nav-link">Cerrar Sesion</a>
+      </li>
+    </ul>
+
+    <!-- <div clas="ml-auto">
+      <a href="#" class="btn btn-default btn-flat"></a>
+      <a href="" class="btn btn-default btn-flat">Cerrar Sesion</a>  
+    </div> -->
+
     <!-- <div class="navbar-custom-menu">
     
       <ul class="nav navbar-nav">
