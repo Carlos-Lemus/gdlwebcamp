@@ -33,38 +33,4 @@
       </li>
     </ul>
 
-    <!-- <div clas="ml-auto">
-      <a href="#" class="btn btn-default btn-flat"></a>
-      <a href="" class="btn btn-default btn-flat">Cerrar Sesion</a>  
-    </div> -->
-
-    <!-- <div class="navbar-custom-menu">
-    
-      <ul class="nav navbar-nav">
-
-        <li class="dropdown user user-menu">
-
-          <a href="" class="toggle-dropdown" data-toggle="dropdown">
-            <span class="hidden-xs">Hola: Admin</span>
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li class="user-footer">
-              <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Ajustes</a>
-              </div>
-
-              <div clas="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Cerrar Sesion</a>
-              </div>
-
-            </li>
-
-          </ul>
-        </li>
-        
-      </ul>
-    </div> -->
-
   </nav>

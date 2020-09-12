@@ -1,6 +1,6 @@
 <?php 
 
-    if(isset($_POST["crear-admin"])) {
+    if($_POST["registro"] == "nuevo") {
         
         $usuario = $_POST["usuario"];
         $nombre = $_POST["nombre"];
@@ -111,4 +111,9 @@
 
         echo json_encode($respuesta);
     }
+
+    else if($_POST["registro"] == "actualizar") {
+        die(json_encode($_POST));
+    }
+
 ?>
