@@ -42,56 +42,114 @@
         } catch(Exception $ex) {
             $respuesta = array(
                 "respuesta" => $ex->getMessage()
-        );
+          );
         }
 
         echo json_encode($respuesta);
 
     }
 
-    else if(isset($_POST["login-admin"])) {
-        
+    else if($_POST["registro"] == "actualizar") {
+        $id = (int) $_POST["id_registro"];
         $usuario = $_POST["usuario"];
-        $password = $_POST["password"];
+        $nombre = $_POST["nombre"];
 
         try {
+
+            require_once("funciones/funciones.php");
+
+
+            if(empty($_POST["password"])) {
+
+                $sql = "UPDATE admins SET usuario = ?, nombre = ?, editado = NOW() WHERE id_admin = ?";
+
+                if($stmt = $conn->prepare($sql)) {
+
+                    $stmt->bind_param("ssi", $usuario, $nombre,$id);
+        
+                    $stmt->execute();
+    
+                    if($stmt->affected_rows > 0) {
+                        $respuesta = array(
+                            "respuesta" => "exito",
+                            "id_actualizado" => $stmt->insert_id
+                        );
+                    }
+                    
+                    $stmt->close();
+                    $conn->close();
+    
+                } else {
+                    $respuesta = array(
+                            "respuesta" => $conn->errno." ".$conn->error
+                    );
+                }
+            } else {
+
+                $password = $_POST["password"];
+
+                $opciones = array (
+                    'cost' => 10
+                );
+                
+                $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
             
+                $sql = "UPDATE admins SET usuario = ?, nombre = ?, password = ?, editado = NOW()  WHERE id_admin = ?";   
+
+                if($stmt = $conn->prepare($sql)) {
+
+                    $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id);
+
+                    $stmt->execute();
+    
+                    if($stmt->affected_rows > 0) {
+                        $respuesta = array(
+                            "respuesta" => "exito",
+                            "id_actualizado" =>  $stmt->insert_id
+                        );
+                    }
+                    
+                    $stmt->close();
+                    $conn->close();
+    
+                } else {
+                    $respuesta = array(
+                            "respuesta" => $conn->errno." ".$conn->error
+                    );
+                }
+            }
+            
+            
+
+        } catch(Exception $ex) {
+            $respuesta = array(
+                "respuesta" => $ex->getMessage()
+            );
+        }
+
+        echo json_encode($respuesta);
+    }
+
+    else if($_POST["registro"] == "eliminar") {
+        
+        $id_borrar = (int) $_POST["id"];
+
+        try {
+
             require_once("funciones/funciones.php"); 
 
-            $sql = "SELECT * FROM admins WHERE usuario = ?";
+            $sql = "DELETE FROM admins WHERE id_admin = ?";
             
             if($stmt = $conn->prepare($sql)) {
 
-                $stmt->bind_param("s", $usuario);
+                $stmt->bind_param("i", $id_borrar);
                 $stmt->execute();
-                $stmt->bind_result($id_admin, $usuario_admin, $nombre_admin, $password_admin);
 
-                if($stmt->affected_rows) {
-                    $existe = $stmt->fetch();
-                    if($existe) {
-                        if(password_verify($_POST["password"], $password_admin)) {
-
-                            session_start();
-                            $_SESSION["usuario"] = $usuario_admin;
-                            $_SESSION["nombre"] = $nombre_admin;
-
-                            $respuesta = array(
-                                "respuesta" => "exitoso",
-                                "usuario" => $usuario_admin
-                            );
-                        } else {
-                            $respuesta = array(
-                                "respuesta" => "password_incorrecto"
-
-                            );
-                        }
-                        
-                    } else {
-                        $respuesta = array(
-                            "respuesta" => "no_existe"
-                        );
-                    }
-
+                if($stmt->affected_rows > 0) {
+                    $respuesta = array(
+                        "respuesta" => "exito",
+                        "id_eliminado" => $id_borrar
+                    );
                 }
                 
                 $stmt->close();
@@ -106,14 +164,10 @@
         } catch(Exception $ex) {
             $respuesta = array(
                 "respuesta" => $ex->getMessage()
-            );
+          );
         }
 
         echo json_encode($respuesta);
-    }
-
-    else if($_POST["registro"] == "actualizar") {
-        die(json_encode($_POST));
     }
 
 ?>

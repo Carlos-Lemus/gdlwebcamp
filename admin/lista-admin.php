@@ -58,7 +58,7 @@
                                             <a href="editar-admin.php?id=<?php echo $admin['id_admin']; ?>" class="btn btn-flat bg-orange margin">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <a href="editar-admin?id=<?php echo $admin['id_admin']; ?>" data_tipo="admin" class="btn btn-flat bg-maroon margin">
+                                            <a href="#" data-tipo="admin" data-id="<?php echo $admin['id_admin']; ?>" class="btn btn-flat bg-maroon margin borrar_registro">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

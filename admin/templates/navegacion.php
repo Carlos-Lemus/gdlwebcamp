@@ -13,7 +13,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info mx-auto">
-          <a href="#" class="d-block">Carlos Lemus</a>
+          <a href="editar-admin.php?id=<?php echo $_SESSION['id']; ?>" class="d-block"><?php echo $_SESSION["nombre"]; ?></a>
         </div>
       </div>
 
