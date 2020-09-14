@@ -22,6 +22,7 @@
 <script src="js/dataTables.bootstrap4.min.js"></script>
 <script src="js/dataTables.responsive.min.js"></script>
 <script src="js/responsive.bootstrap4.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -29,6 +30,10 @@
 <script src="js/sweetalert2.all.min.js"></script>
 <script src="js/admin-ajax.js"></script>
 <script src="js/login-ajax.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/jquery.inputmask.bundle.min.js"></script>
+<script src="js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="js/select2.full.js"></script>
 <script src="js/app.js"></script>
 
 </body>

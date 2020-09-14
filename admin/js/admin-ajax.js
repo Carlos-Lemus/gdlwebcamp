@@ -57,7 +57,7 @@ $(document).ready(function() {
                         "registro": "eliminar"
                     },
                     dataType: "json",
-                    url: "modelo_"+tipo+".php",
+                    url: "modelo-"+tipo+".php",
                     success: (data) => {
                         let resultado = data;
                         if(resultado.respuesta == "exito") {

@@ -21,4 +21,18 @@ $(document).ready(function () {
         search: "Buscar: "
       },
     });
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+      format: 'L'
+    });
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    });
+
+    //Initialize Select2 Elements
+    $('.select2').select2();
+  
   });
