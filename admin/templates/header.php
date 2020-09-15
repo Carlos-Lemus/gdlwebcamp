@@ -21,6 +21,7 @@
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
   <link rel="stylesheet" href="css/select2.min.css">
+  <link rel="stylesheet" href="css/fontawesome-iconpicker.min.css">
   <link rel="stylesheet" href="css/admin.css">
 
 </head>

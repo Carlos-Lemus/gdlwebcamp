@@ -86,13 +86,7 @@
                     );
                 } else {
                     $respuesta = array(
-                        "respuesta" => $conn->errno." ".$conn->error,
-                        "nombre" => $nombre,
-                        "fecha" => $fecha_formateada,
-                        "hora" => $hora_formateada,
-                        "cat" => $categoria,
-                        "invitado" => $invitado,
-                        "id" => $id 
+                        "respuesta" => $conn->errno." ".$conn->error
                     );
                 }
                 
