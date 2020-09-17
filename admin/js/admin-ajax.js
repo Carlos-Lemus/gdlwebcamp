@@ -76,6 +76,41 @@ $(document).ready(function() {
             });
     });
 
+    // se ejecuta cuando hay un archivo en el formulario
+    $("#guardar_registro_archivo").on("submit", function(e) {
+        e.preventDefault();
+        
+        let datos = new FormData(this);
+        
+        $.ajax({
+            type: $(this).attr("method"),
+            data: datos,
+            url: $(this).attr("action"),
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            async: true,
+            cache: false,
+            success: data => {
+                let respuesta = data.respuesta;
+                console.log(data);
+                if(respuesta === "exito") {
+                    swal({
+                        type: 'success',
+                        title: 'Exito',
+                        text: 'Se guardo/Edito el administrador',
+                      })
+                } else {
+                    swal({
+                        type: 'error',
+                        title: 'Error',
+                        text: 'Ocurrio un error al realizar la operacion del administrador',
+                      })
+                }
+            }
+        });
+    });
+
     $("#crear_registro").attr("disabled", true);
 
     $("#repetir_password").on("input", () => {
