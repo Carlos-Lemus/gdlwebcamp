@@ -60,6 +60,7 @@ $(document).ready(function() {
                     url: "modelo-"+tipo+".php",
                     success: (data) => {
                         let resultado = data;
+                        console.log(data);
                         if(resultado.respuesta == "exito") {
                             jQuery("[data-id='"+resultado.id_eliminado+"']").parents("tr").remove();
                         } else {
