@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 10-09-2020 a las 22:42:33
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.4.8
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 19-09-2020 a las 21:19:05
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,22 +31,23 @@ CREATE TABLE `admins` (
   `id_admin` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `nombre` varchar(70) NOT NULL,
-  `password` varchar(60) NOT NULL
+  `password` varchar(60) NOT NULL,
+  `editado` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `admins`
 --
 
-INSERT INTO `admins` (`id_admin`, `usuario`, `nombre`, `password`) VALUES
-(1, 'Admin', 'pedro', '$2y$10$aSBE4atx.dZddMoDVYR7S.v5oNn8jjduCyZN6/qXbdI16F2mgmp0i'),
-(2, 'Admin2', 'Pedro', '$2y$10$LAMk1RqJcpfz1.4VsE2WPu5WCqnxfcLQfD2ar7.BWj6zufl/jbJcq'),
-(3, 'Admin2', 'Pedro', '$2y$10$BobGluKQP2QnsuscoCrX7.Zb6EE8J0fOwMsSCPQrqcVnyVSNsK/ve'),
-(4, 'Admin2', 'Luis', '$2y$10$yPZwSfI0xqyvYmLNpKJabOaCMdatlaO0DhV..2BACeG6xYDoxOKFe'),
-(5, 'Admin5', 'Miguel', '$2y$10$VjiCBX3phIGvMrtqfVj1eeW7ENyV1aFCU3wpp3f2.UxZi9.UiP2hu'),
-(6, 'Admin10', 'Juan', '$2y$10$B992A7txCSK3wsYqMzIq6.fotmPDpRq52mKAIF917O.IntAUnLfYu'),
-(7, 'Admin12', 'Luis', '$2y$10$j/0UVdY6RDsT4sVZQsMrnuuE/9e9UqgBIq437r.VHi7zek0xyLcKG'),
-(8, 'Admin14', 'Luis', '$2y$10$KLKt6/zjDxv3iwB1TIilnewYjE3Xryh2oIhh0FIXvu13P6NwGamWW');
+INSERT INTO `admins` (`id_admin`, `usuario`, `nombre`, `password`, `editado`) VALUES
+(1, 'Admin', 'pedro', '$2y$10$aSBE4atx.dZddMoDVYR7S.v5oNn8jjduCyZN6/qXbdI16F2mgmp0i', NULL),
+(2, 'Admin2', 'Pedro', '$2y$10$LAMk1RqJcpfz1.4VsE2WPu5WCqnxfcLQfD2ar7.BWj6zufl/jbJcq', '2020-09-19 13:18:05'),
+(3, 'Admin2', 'Pedro', '$2y$10$BobGluKQP2QnsuscoCrX7.Zb6EE8J0fOwMsSCPQrqcVnyVSNsK/ve', NULL),
+(4, 'Admin2', 'Luis', '$2y$10$yPZwSfI0xqyvYmLNpKJabOaCMdatlaO0DhV..2BACeG6xYDoxOKFe', NULL),
+(5, 'Admin5', 'Miguel', '$2y$10$VjiCBX3phIGvMrtqfVj1eeW7ENyV1aFCU3wpp3f2.UxZi9.UiP2hu', NULL),
+(6, 'Admin10', 'Juan', '$2y$10$B992A7txCSK3wsYqMzIq6.fotmPDpRq52mKAIF917O.IntAUnLfYu', NULL),
+(7, 'Admin12', 'Luis', '$2y$10$j/0UVdY6RDsT4sVZQsMrnuuE/9e9UqgBIq437r.VHi7zek0xyLcKG', NULL),
+(8, 'Admin14', 'Luis', '$2y$10$KLKt6/zjDxv3iwB1TIilnewYjE3Xryh2oIhh0FIXvu13P6NwGamWW', NULL);
 
 -- --------------------------------------------------------
 
@@ -297,7 +298,7 @@ ALTER TABLE `registros`
 -- AUTO_INCREMENT de la tabla `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria_eventos`
