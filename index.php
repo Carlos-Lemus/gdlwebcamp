@@ -76,7 +76,7 @@
               <?php } ?>
       
                 <div class="detalle-evento">
-                  <h3><?php echo utf8_encode($evento["nombre_evento"]); ?></h3>
+                  <h3><?php echo $evento["nombre_evento"]; ?></h3>
                   <p><i class="fas fa-clock" aria-hidden="true"></i> <?php echo $evento["hora_evento"]; ?></p>
                   <p><i class="fas fa-calendar" aria-hidden="true"></i> <?php echo $evento["fecha_evento"]; ?></p>
                   <p><i class="fas fa-user" aria-hidden="true"></i> <?php echo $evento["nombre_invitado"]." ".$evento["apellido_invitado"]; ?></p>

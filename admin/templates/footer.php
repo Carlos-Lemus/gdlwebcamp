@@ -36,6 +36,7 @@
 <script src="js/select2.full.js"></script>
 <script src="js/fontawesome-iconpicker.min.js"></script>
 <script src="js/cotizador.js"></script>
+<script src="js/Chart.min.js"></script>
 <script src="js/app.js"></script>
 
 </body>
